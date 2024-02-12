@@ -1,21 +1,24 @@
-import { Button, ButtonGroup, Grid, GridItem } from '@chakra-ui/react'
+import { Grid, GridItem, Show } from '@chakra-ui/react'
 
 function App() {
 
 
   return (
-    <Grid templateAreas={`"nav nav" 
-                          "aside main"
-                          "aside footer"`}
+    <Grid templateAreas={{
+      base: `"nav" "main" "footer"`,
+      lg: `"nav nav" "aside main" "aside footer"`
+    }}
       gridTemplateRows={'50px 1fr 30px'}
       gridTemplateColumns={'150px 1fr '}
       h='200px' gap='1' color='blackAlpha.700'>
       <GridItem pl='2' bg='orange.300' area={'nav'}>
         Nav
       </GridItem>
-      <GridItem pl='2' bg='blue.300' area={'aside'}>
-        Aside
-      </GridItem>
+      <Show above='lg'>
+        <GridItem pl='2' bg='blue.300' area={'aside'}>
+          Aside
+        </GridItem>
+      </Show>
       <GridItem pl='2' bg='green.300' area={'main'}>
         Main
       </GridItem>
