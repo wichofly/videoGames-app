@@ -3,7 +3,7 @@ import Navbar from './components/Navbar'
 import GameGrid from './components/GameGrid'
 
 function App() {
-  const color = useColorModeValue('red', 'green')
+  const color = useColorModeValue('teal', 'gray.300')
 
   return (
     <Grid templateAreas={{
