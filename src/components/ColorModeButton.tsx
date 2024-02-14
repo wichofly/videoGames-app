@@ -1,7 +1,7 @@
 import { Button, HStack, useColorMode } from "@chakra-ui/react"
 import { FiMoon, FiSun } from "react-icons/fi";
 
-const ColorModeSwitch = () => {
+const ColorModeButton = () => {
   const { toggleColorMode, colorMode } = useColorMode()
 
   return (
@@ -18,7 +18,7 @@ const ColorModeSwitch = () => {
   )
 }
 
-export default ColorModeSwitch
+export default ColorModeButton
 
 /**
  * Using <Button /> is not necessary to use "isChecked"
