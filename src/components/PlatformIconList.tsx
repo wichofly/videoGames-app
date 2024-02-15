@@ -2,18 +2,35 @@ import { FaPlaystation, FaXbox, FaWindows, FaApple, FaLinux, FaAndroid, FaGlobe 
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 
-import { Text } from "@chakra-ui/react"
+import { HStack, Icon } from "@chakra-ui/react"
 import { Platform } from "./hooks/useGames"
+import { IconType } from "react-icons";
 
 // interface Props {
 //   platforms: Platform[]
 // }
 
 const PlatformIconList = ({ platforms }: { platforms: Platform[] }) => {
+
+  const iconMap: { [key: string]: IconType } = {
+    // all slug is written 
+    playstation: FaPlaystation,
+    xbox: FaXbox,
+    pc: FaWindows,
+    mac: FaApple,
+    linux: FaLinux,
+    android: FaAndroid,
+    web: FaGlobe,
+    ios: MdPhoneIphone,
+    nintendo: SiNintendo
+  }
+
   return (
-    <>
-      {platforms.map((platform) => <Text>{platform.name}</Text>)}
-    </>
+    <HStack mt={4}>
+      {platforms.map((platform) =>
+        <Icon as={iconMap[platform.slug]} color='gray.500' />
+      )}
+    </HStack>
   )
 }
 
