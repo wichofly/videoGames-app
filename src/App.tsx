@@ -1,6 +1,7 @@
 import { Grid, GridItem, Show, useColorModeValue } from '@chakra-ui/react'
 import Navbar from './components/Navbar'
 import GameGrid from './components/GameGrid'
+import GenreList from './components/GenreList'
 
 function App() {
   const color = useColorModeValue('teal', 'gray.300')
@@ -21,7 +22,7 @@ function App() {
 
       <Show above='lg'>
         <GridItem pl='2' area={'aside'}>
-          Aside
+          <GenreList />
         </GridItem>
       </Show>
 
