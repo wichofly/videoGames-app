@@ -14,6 +14,10 @@ function App() {
       // gridTemplateRows={'50px 1fr 30px'}
       // gridTemplateColumns={'150px 1fr '}
       // h='200px' gap='1' 
+      templateColumns={{
+        base: '1fr',
+        lg: '200px 1fr'
+      }}
       color={color}
     >
       <GridItem pl='2' area={'nav'}>
@@ -21,7 +25,7 @@ function App() {
       </GridItem>
 
       <Show above='lg'>
-        <GridItem pl='2' area={'aside'}>
+        <GridItem pl='2' area={'aside'} px={5}>
           <GenreList />
         </GridItem>
       </Show>
