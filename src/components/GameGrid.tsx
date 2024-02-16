@@ -1,17 +1,30 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
 import useGames from "./hooks/useGames";
 import GameCard from "./GameCard";
+import GameCardSkeleton from "./GameCardSkeleton";
+import GameCardContainer from "./GameCardContainer";
 
 
 const GameGrid = () => {
-  const { games, error } = useGames()
+  const { games, error, isLoading } = useGames()
+  const skeletons = [1, 2, 3, 4, 5, 6]
 
   return (
     <>
       <Text>{error && <p>{error}</p>}</Text>
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} spacing={10} padding='10px'>
+      <SimpleGrid
+        columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
+        spacing={10}
+        padding='10px'
+      >
+        {isLoading && skeletons.map(skeleton =>
+          <GameCardContainer>
+            <GameCardSkeleton key={skeleton} />
+          </GameCardContainer>)}
         {games.map(game =>
-          <GameCard key={game.id} game={game} />
+          <GameCardContainer>
+            <GameCard key={game.id} game={game} />
+          </GameCardContainer>
         )}
       </SimpleGrid>
     </>
@@ -37,4 +50,5 @@ export default GameGrid
         <li key={id}>{name}</li>)}
        </ul>
  * SimpleGrid provides a friendly interface to create responsive grid layouts with ease.
+ * const skeletons = [1, 2, 3, 4, 5, 6] --> six Cards to show loading
  */
