@@ -1,4 +1,4 @@
-import { Grid, GridItem, HStack, Show, useColorModeValue } from '@chakra-ui/react'
+import { Box, Flex, Grid, GridItem, Show, useColorModeValue } from '@chakra-ui/react'
 import Navbar from './components/Navbar'
 import GameGrid from './components/GameGrid'
 import GenreList from './components/GenreList'
@@ -47,16 +47,18 @@ function App() {
       </Show>
 
       <GridItem pl='2' area={'main'}>
-        <HStack spacing={5} pl={2} mb={5}>
-          <PlatformSelector
-            onSelectPlatform={platform => setGameQuery({ ...gameQuery, platform })}
-            selectedPlatform={gameQuery.platform}
-          />
+        <Flex pl={2} mb={5}>
+          <Box mr={5}>
+            <PlatformSelector
+              onSelectPlatform={platform => setGameQuery({ ...gameQuery, platform })}
+              selectedPlatform={gameQuery.platform}
+            />
+          </Box>
           <SortSelector
             onSelectSortOrder={sortOrder => setGameQuery({ ...gameQuery, sortOrder })}
             sortOrder={gameQuery.sortOrder}
           />
-        </HStack>
+        </Flex>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
 
