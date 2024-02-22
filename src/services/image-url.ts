@@ -1,5 +1,7 @@
+import noImg from '../assets/no-image-placeholder-6f3882e0.webp';
+
 const getCroppedImgUrl = (url: string) => {
-  if (!url) return '';
+  if (!url) return noImg;
 
   const target = 'media/';
   const index = url.indexOf(target) + target.length;
@@ -19,4 +21,5 @@ export default getCroppedImgUrl;
 
  * Temporality fix to show the order of sorts. not all have images.
     if (!url) return ''; 
+    Now it is fixed using "noImg"
  */
