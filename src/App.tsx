@@ -7,9 +7,13 @@ import { useState } from 'react'
 import PlatformSelector from './components/PlatformSelector'
 import { Platform } from './hooks/useGames'
 
+export interface GameQuery {
+  genre: Genre | null
+  platform: Platform | null
+}
+
 function App() {
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null)
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
 
   const color = useColorModeValue('teal', 'gray.300')
 
@@ -34,18 +38,18 @@ function App() {
       <Show above='lg'>
         <GridItem pl='2' area={'aside'} px={5}>
           <GenreList
-            onSelectedGenre={(genre) => setSelectedGenre(genre)}
-            selectedGenre={selectedGenre}
+            onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+            selectedGenre={gameQuery.genre}
           />
         </GridItem>
       </Show>
 
       <GridItem pl='2' area={'main'}>
         <PlatformSelector
-          onSelectPlatform={platform => setSelectedPlatform(platform)}
-          selectedPlatform={selectedPlatform}
+          onSelectPlatform={platform => setGameQuery({ ...gameQuery, platform })}
+          selectedPlatform={gameQuery.platform}
         />
-        <GameGrid selectedGenre={selectedGenre} selectedPlatform={selectedPlatform} />
+        <GameGrid gameQuery={gameQuery} />
       </GridItem>
 
       <GridItem pl='2' area={'footer'}>
