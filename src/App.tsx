@@ -49,19 +49,21 @@ function App() {
       </Show>
 
       <GridItem pl='2' area={'main'}>
-        <GameHeading gameQuery={gameQuery} />
-        <Flex pl={2} mb={5}>
-          <Box mr={5}>
-            <PlatformSelector
-              onSelectPlatform={platform => setGameQuery({ ...gameQuery, platform })}
-              selectedPlatform={gameQuery.platform}
+        <Box pl={2}>
+          <GameHeading gameQuery={gameQuery} />
+          <Flex mb={5}>
+            <Box mr={5}>
+              <PlatformSelector
+                onSelectPlatform={platform => setGameQuery({ ...gameQuery, platform })}
+                selectedPlatform={gameQuery.platform}
+              />
+            </Box>
+            <SortSelector
+              onSelectSortOrder={sortOrder => setGameQuery({ ...gameQuery, sortOrder })}
+              sortOrder={gameQuery.sortOrder}
             />
-          </Box>
-          <SortSelector
-            onSelectSortOrder={sortOrder => setGameQuery({ ...gameQuery, sortOrder })}
-            sortOrder={gameQuery.sortOrder}
-          />
-        </Flex>
+          </Flex>
+        </Box>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
 
