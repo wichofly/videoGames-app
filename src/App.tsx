@@ -8,6 +8,7 @@ import PlatformSelector from './components/PlatformSelector'
 import { Platform } from './hooks/useGames'
 import SortSelector from './components/SortSelector'
 import GameHeading from './components/GameHeading'
+import Footer from './components/Footer'
 
 export interface GameQuery {
   genre: Genre | null
@@ -24,7 +25,7 @@ function App() {
   return (
     <Grid templateAreas={{
       base: `"nav" "main" "footer"`,
-      lg: `"nav nav" "aside main" "aside footer"`
+      lg: `"nav nav" "aside main" "footer footer"`
     }}
       // gridTemplateRows={'50px 1fr 30px'}
       // gridTemplateColumns={'150px 1fr '}
@@ -68,7 +69,7 @@ function App() {
       </GridItem>
 
       <GridItem pl='2' area={'footer'}>
-        Footer
+        <Footer text='Copyright © 2024. All rights reserved.' />
       </GridItem>
     </Grid >
   )
