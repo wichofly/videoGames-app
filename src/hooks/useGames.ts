@@ -1,6 +1,5 @@
 import { GameQuery } from '../App';
 import useData from './useData';
-import { Genre } from './useGenres';
 
 export interface Platform {
   id: number;
@@ -14,6 +13,7 @@ export interface Game {
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  rating_top: number 
 }
 
 const useGames = (gameQuery: GameQuery) =>
@@ -23,6 +23,8 @@ const useGames = (gameQuery: GameQuery) =>
       params: {
         genres: gameQuery.genre?.id,
         platforms: gameQuery.platform?.id,
+        ordering: gameQuery.sortOrder,
+        search: gameQuery.searchText,
       },
     },
     [gameQuery]
@@ -33,4 +35,7 @@ export default useGames;
 /**
  * parent_platforms: {platform: Platform}[] ===> It is an array of objects, where each object has a property called platform of type Platform.
    This is known as the design smell.
+
+ * The beauty of query objects: 
+   Instead of passing so many variables around, we have a single object that includes everything we need.
  */
