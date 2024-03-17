@@ -17,11 +17,13 @@ const Footer = ({ text }: Props) => {
               <FaLinkedin fontSize='1.8em' />
             </Link>
           </Button>
+
           <Button variant='ghost'>
             <Link href="https://github.com/wichofly/videoGames-app" isExternal>
               <FaGithub fontSize='1.8em' />
             </Link>
           </Button>
+
           <Button variant='ghost'>
             <Link href="https://wichofly.github.io/portfolio-website/" isExternal>
               <FaLaptop fontSize='1.8em' />
