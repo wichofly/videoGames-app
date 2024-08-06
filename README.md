@@ -12,7 +12,6 @@ Merge Gaming Passion with Front-end Development, as well learn more the use of T
 
 - Confidently build front-end apps with React and TypeScript
 - Build reusable function components
-- Style components using vanilla CSS, CSS modules, and CSS-in-JS
 - Use [Chakra UI](https://chakra-ui.com/) for style
 - Manage component state
 - Build forms with React Hook Forms
