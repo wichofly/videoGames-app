@@ -1,11 +1,15 @@
 import axios from 'axios';
 
-// const api_key = import.meta.env.VITE_API_KEY;
+const api_key = import.meta.env.VITE_API_KEY;
+
+if (!api_key) {
+  throw new Error('VITE_API_KEY is not defined in the environment variables.');
+}
 
 export default axios.create({
   baseURL: 'https://api.rawg.io/api',
   params: {
-    key: '35f38480039a4843bcc86b3eeb3a4e4f',
+    key: api_key,
   },
 });
 
