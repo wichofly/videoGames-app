@@ -10,11 +10,11 @@ Merge Gaming Passion with Front-end Development, as well learn more the use of T
 
 ## Key Features
 
-- Game Discovery: Users can search for games based on platform, genre, and other parameters.
-- Responsive Design: The app adapts to different screen sizes, providing a seamless user experience on desktops, tablets, and mobile devices.
-- User Interface: Implemented using React and Chakra UI to create a visually appealing and user-friendly interface.
-- Dynamic Filtering and Sorting: Users can filter games by genre and platform, and sort them based on various criteria such as popularity, release date, and rating.
-- Dark/Light Mode: The app supports color mode switching, allowing users to toggle between dark and light themes.
+- **Game Discovery:** Users can search for games based on platform, genre, and other parameters.
+- **Responsive Design:** The app adapts to different screen sizes, providing a seamless user experience on desktops, tablets, and mobile devices.
+- **User Interface:** Implemented using React and Chakra UI to create a visually appealing and user-friendly interface.
+- **Dynamic Filtering and Sorting:** Users can filter games by genre and platform, and sort them based on various criteria such as popularity, release date, and rating.
+- **Dark/Light Mode:** The app supports color mode switching, allowing users to toggle between dark and light themes.
 
 ## Key Technologies and Tools
 
@@ -27,5 +27,5 @@ Merge Gaming Passion with Front-end Development, as well learn more the use of T
 
 ## Website link:
 
-- [VideoGames](https://video-games-app-fawn.vercel.app/) 
+- [VideoGames-app](https://video-games-app-fawn.vercel.app/) 
 
