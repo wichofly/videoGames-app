@@ -1,9 +1,24 @@
 import axios from 'axios';
 
+const getUrl = (): string => {
+  return 'https://api.rawg.io/api';
+};
+
+const getKey = (): string => {
+  const key = import.meta.env.VITE_RAWG_API_KEY;
+  if (!key) {
+    throw new Error('RAWG API key not found');
+  }
+  return key;
+};
+
+const rawgUrl = getUrl();
+const rawgKey = getKey();
+
 export default axios.create({
-  baseURL: 'https://api.rawg.io/api',
+  baseURL: rawgUrl,
   params: {
-    key: '35f38480039a4843bcc86b3eeb3a4e4f',
+    key: rawgKey,
   },
 });
 
