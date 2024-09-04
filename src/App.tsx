@@ -20,6 +20,7 @@ export interface GameQuery {
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
 
+  const bgColor = useColorModeValue('gray.50', 'gray.800'); // light gray for light mode, darker gray for dark mode
   const color = useColorModeValue('teal', 'gray.300')
 
   return (
@@ -34,6 +35,7 @@ function App() {
         base: '1fr',
         lg: '200px 1fr'
       }}
+      bg={bgColor}
       color={color}
     >
       <GridItem pl='2' area={'nav'}>
