@@ -1,17 +1,17 @@
-import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
-import { FaChevronDown } from 'react-icons/fa'
-import usePlatform from '../hooks/usePlatform'
-import { Platform } from '../hooks/useGames'
+import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import { FaChevronDown } from 'react-icons/fa';
+import usePlatform from '../hooks/usePlatform';
+import { Platform } from '../hooks/useGames';
 
 interface Props {
-  onSelectPlatform: (platform: Platform) => void
-  selectedPlatform: Platform | null
+  onSelectPlatform: (platform: Platform) => void;
+  selectedPlatform: Platform | null;
 }
 
 const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
-  const { data, error } = usePlatform()
+  const { data, error } = usePlatform();
 
-  if (error) return null
+  if (error) return null;
 
   return (
     <>
@@ -22,20 +22,21 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
           {selectedPlatform?.name || 'Platforms'}
         </MenuButton>
         <MenuList>
-          {data.map(platform =>
+          {data?.results.map((platform) => (
             <MenuItem
               key={platform.id}
               onClick={() => onSelectPlatform(platform)}
             >
               {platform.name}
-            </MenuItem>)}
+            </MenuItem>
+          ))}
         </MenuList>
-      </Menu >
+      </Menu>
     </>
-  )
-}
+  );
+};
 
-export default PlatformSelector
+export default PlatformSelector;
 
 /**
  * Using "if (error) return null"
