@@ -71,7 +71,7 @@ function App() {
       </GridItem>
 
       <GridItem pl='2' area={'footer'}>
-        <Footer text='Copyright © 2024. All rights reserved.' />
+        <Footer />
       </GridItem>
     </Grid >
   )
