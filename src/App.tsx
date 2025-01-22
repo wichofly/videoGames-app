@@ -6,20 +6,18 @@ import {
   Show,
   useColorModeValue,
 } from '@chakra-ui/react';
-import Navbar from './components/Navbar';
-import GameGrid from './components/GameGrid';
-import GenreList from './components/GenreList';
-import { Genre } from './hooks/useGenres';
 import { useState } from 'react';
-import PlatformSelector from './components/PlatformSelector';
-import { Platform } from './hooks/useGames';
-import SortSelector from './components/SortSelector';
-import GameHeading from './components/GameHeading';
 import Footer from './components/Footer';
+import GameGrid from './components/GameGrid';
+import GameHeading from './components/GameHeading';
+import GenreList from './components/GenreList';
+import Navbar from './components/Navbar';
+import PlatformSelector from './components/PlatformSelector';
+import SortSelector from './components/SortSelector';
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }
@@ -55,8 +53,10 @@ function App() {
       <Show above="lg">
         <GridItem pl="2" area={'aside'} px={5}>
           <GenreList
-            onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
-            selectedGenre={gameQuery.genre}
+            onSelectedGenre={(genre) =>
+              setGameQuery({ ...gameQuery, genreId: genre.id })
+            }
+            selectedGenreId={gameQuery.genreId}
           />
         </GridItem>
       </Show>
@@ -68,9 +68,9 @@ function App() {
             <Box mr={5}>
               <PlatformSelector
                 onSelectPlatform={(platform) =>
-                  setGameQuery({ ...gameQuery, platform })
+                  setGameQuery({ ...gameQuery, platformId: platform.id })
                 }
-                selectedPlatform={gameQuery.platform}
+                selectedPlatformId={gameQuery.platformId}
               />
             </Box>
             <SortSelector

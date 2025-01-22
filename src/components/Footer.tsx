@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <HStack p="20px" justifyContent="space-between" fontSize="xl">
-      <Text as="b">Copyrights &copy; {footerYears} All Rights Reserved</Text>
+      <Text as="b"> Copyrights &copy; {footerYears} All Rights Reserved</Text>
       <Box textAlign="center">
         <Text as="b">Find me on</Text>
         <HStack justifyContent="space-between" my={2}>
