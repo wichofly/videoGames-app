@@ -1,28 +1,27 @@
 import {
+  Grid,
+  Show,
+  GridItem,
   Box,
   Flex,
-  Grid,
-  GridItem,
-  Show,
   useColorModeValue,
 } from '@chakra-ui/react';
-import Navbar from './components/Navbar';
-import GenreList from './components/GenreList';
-import GameHeading from './components/GameHeading';
-import PlatformSelector from './components/PlatformSelector';
-import SortSelector from './components/SortSelector';
-import GameGrid from './components/GameGrid';
-import Footer from './components/Footer';
+import Footer from '../components/Footer';
+import GameGrid from '../components/GameGrid';
+import GameHeading from '../components/GameHeading';
+import GenreList from '../components/GenreList';
+import PlatformSelector from '../components/PlatformSelector';
+import SortSelector from '../components/SortSelector';
 
-function App() {
+const HomePage = () => {
   const bgColor = useColorModeValue('gray.100', 'gray.800'); // light gray for light mode, darker gray for dark mode
   const color = useColorModeValue('teal', 'gray.300');
 
   return (
     <Grid
       templateAreas={{
-        base: `"nav" "main" "footer"`,
-        lg: `"nav nav" "aside main" "footer footer"`,
+        base: `"main" "footer"`,
+        lg: `"aside main" "footer footer"`,
       }}
       // gridTemplateRows={'50px 1fr 30px'}
       // gridTemplateColumns={'150px 1fr '}
@@ -34,9 +33,9 @@ function App() {
       bg={bgColor}
       color={color}
     >
-      <GridItem pl="2" area={'nav'}>
+      {/* <GridItem pl="2" area={'nav'}>
         <Navbar />
-      </GridItem>
+      </GridItem> */}
 
       <Show above="lg">
         <GridItem pl="2" area={'aside'} px={5}>
@@ -62,6 +61,6 @@ function App() {
       </GridItem>
     </Grid>
   );
-}
+};
 
-export default App;
+export default HomePage;
