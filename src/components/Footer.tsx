@@ -1,5 +1,5 @@
 import { Box, Button, HStack, Link, Text } from '@chakra-ui/react';
-import { FaLinkedin, FaGithub, FaLaptop } from 'react-icons/fa';
+import { FaGithub, FaLaptop, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   const footerYears = new Date().getFullYear();

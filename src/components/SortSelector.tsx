@@ -1,12 +1,10 @@
-import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react"
-import { FaChevronDown } from "react-icons/fa"
+import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import { FaChevronDown } from 'react-icons/fa';
+import { useGameQueryStore } from '../store';
 
-interface Props {
-  onSelectSortOrder: (sortOrder: string) => void
-  sortOrder: string
-}
-
-const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
+const SortSelector = () => {
+  const sortOrder = useGameQueryStore((s) => s.gameQuery.sortOrder);
+  const setSortOrder = useGameQueryStore((s) => s.setSortOrder);
 
   const sortOrders = [
     { value: '', label: 'Relevance' },
@@ -15,30 +13,33 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
     { value: '-released', label: 'Release Date' },
     { value: '-metacritic', label: 'Popularity' },
     { value: '-rating', label: 'Average Rating' },
-  ]
+  ];
 
-  const currentSortOrder = sortOrders.find(order => order.value === sortOrder)
+  const currentSortOrder = sortOrders.find(
+    (order) => order.value === sortOrder
+  );
 
   return (
-    <Menu >
+    <Menu>
       <MenuButton as={Button} rightIcon={<FaChevronDown />}>
         Order by: {currentSortOrder?.label || 'Relevance'}
       </MenuButton>
       <MenuList>
-        {sortOrders.map(order =>
+        {sortOrders.map((order) => (
           <MenuItem
             key={order.value}
             value={order.value}
-            onClick={() => onSelectSortOrder(order.value)}
+            onClick={() => setSortOrder(order.value)}
           >
             {order.label}
-          </MenuItem>)}
+          </MenuItem>
+        ))}
       </MenuList>
     </Menu>
-  )
-}
+  );
+};
 
-export default SortSelector
+export default SortSelector;
 
 /**
  * With 'Relevance' is not needed a value cause is the default sort order.
