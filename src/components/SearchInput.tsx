@@ -6,13 +6,11 @@ import {
 } from '@chakra-ui/react';
 import { useRef } from 'react';
 import { CiSearch } from 'react-icons/ci';
+import { useGameQueryStore } from '../store';
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-
-const SearchInput = ({ onSearch }: Props) => {
+const SearchInput = () => {
   const ref = useRef<HTMLInputElement>(null);
+  const setSearchText = useGameQueryStore((s) => s.setSearchText);
 
   const backgroundColor = useColorModeValue('gray.50', 'gray.650');
 
@@ -21,7 +19,7 @@ const SearchInput = ({ onSearch }: Props) => {
       onSubmit={(evt) => {
         evt.preventDefault();
 
-        if (ref.current) onSearch(ref.current.value);
+        if (ref.current) setSearchText(ref.current.value);
       }}
     >
       <InputGroup>
@@ -48,4 +46,14 @@ export default SearchInput;
 
  * if (ref.current) onSearch(ref.current.value)
    This code checks if the ref.current value exists, and if it does, it calls the onSearch function with the value of ref.current as an argument. 
+ */
+
+/* Coding with Zustand:
+ * const { setSearchText } = useGameQueryStore();
+  This component will be dependent on useGameQueryStore. Meaning that every time that value in the store changes, the component will be rerender.
+
+ * const setSearchText = useGameQueryStore(s => s.setSearchText)
+  Better approach is to use a "selector (s or what ever)" to select our update function. So, the component is only dependent on the Function not dependent on useGameQueryStore.
+  Anything else changes, this component does not care.  
+
  */
