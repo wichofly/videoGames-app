@@ -1,6 +1,7 @@
 import { Box, useColorModeValue } from '@chakra-ui/react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const Layout = () => {
   const bgColor = useColorModeValue('gray.100', 'gray.800'); // light gray for light mode, darker gray for dark mode
@@ -12,6 +13,7 @@ const Layout = () => {
       <Box padding="5">
         <Outlet />
       </Box>
+      <Footer />
     </Box>
   );
 };
