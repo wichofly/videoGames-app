@@ -1,5 +1,12 @@
-import { Box, Heading, Spinner, Text } from '@chakra-ui/react';
-import { useParams } from 'react-router-dom';
+import {
+  Button,
+  GridItem,
+  Heading,
+  SimpleGrid,
+  Spinner,
+  Text,
+} from '@chakra-ui/react';
+import { Link, useParams } from 'react-router-dom';
 import ExpandableText from '../components/ExpandableText';
 import GameAttributes from '../components/GameAttributes';
 import useGame from '../hooks/useGame';
@@ -17,13 +24,18 @@ const GameDetailPage = () => {
   if (!game) return <Text>No Game data available.</Text>;
 
   return (
-    <Box>
-      <Heading>{game.name}</Heading>
-      <ExpandableText>{game.description_raw}</ExpandableText>
-      <GameAttributes game={game} />
-      <GameTrailer gameId={game.id} />
-      <GameScreenshots gameId={game.id} />
-    </Box>
+    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
+      <GridItem>
+        <Heading mb={2}>{game.name}</Heading>
+        <ExpandableText>{game.description_raw}</ExpandableText>
+        <GameAttributes game={game} />
+      </GridItem>
+
+      <GridItem>
+        <GameTrailer gameId={game.id} />
+        <GameScreenshots gameId={game.id} />
+      </GridItem>
+    </SimpleGrid>
   );
 };
 
