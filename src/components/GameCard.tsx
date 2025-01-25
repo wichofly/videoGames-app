@@ -1,9 +1,10 @@
-import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react"
-import { Game } from "../hooks/useGames"
-import PlatformIconList from "./PlatformIconList"
-import CriticScore from "./CriticScore"
-import getCroppedImgUrl from "../services/image-url"
-import Emoji from "./Emoji"
+import { Link } from 'react-router-dom';
+import { Card, CardBody, HStack, Heading, Image } from '@chakra-ui/react';
+import { Game } from '../hooks/useGames';
+import PlatformIconList from './PlatformIconList';
+import CriticScore from './CriticScore';
+import getCroppedImgUrl from '../services/image-url';
+import Emoji from './Emoji';
 
 // interface Props {
 //   game: Game
@@ -14,20 +15,22 @@ const GameCard = ({ game }: { game: Game }) => {
     <Card>
       <Image src={getCroppedImgUrl(game.background_image)} />
       <CardBody>
-        <HStack justifyContent='space-between' mb={3}>
-          <PlatformIconList platforms={game.parent_platforms.map(plat => plat.platform)} />
+        <HStack justifyContent="space-between" mb={3}>
+          <PlatformIconList
+            platforms={game.parent_platforms.map((plat) => plat.platform)}
+          />
           <CriticScore score={game.metacritic} />
         </HStack>
-        <Heading fontSize='2xl'>
-          {game.name}
+        <Heading fontSize="2xl">
+          <Link to={'/games/' + game.slug}>{game.name}</Link>
           <Emoji rating={game.rating_top} />
         </Heading>
       </CardBody>
     </Card>
-  )
-}
+  );
+};
 
-export default GameCard
+export default GameCard;
 
 /**
  * Remember not using interface

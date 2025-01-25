@@ -1,11 +1,4 @@
-import {
-  Grid,
-  Show,
-  GridItem,
-  Box,
-  Flex,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Grid, Show, GridItem, Box, Flex } from '@chakra-ui/react';
 import Footer from '../components/Footer';
 import GameGrid from '../components/GameGrid';
 import GameHeading from '../components/GameHeading';
@@ -14,9 +7,6 @@ import PlatformSelector from '../components/PlatformSelector';
 import SortSelector from '../components/SortSelector';
 
 const HomePage = () => {
-  const bgColor = useColorModeValue('gray.100', 'gray.800'); // light gray for light mode, darker gray for dark mode
-  const color = useColorModeValue('teal', 'gray.300');
-
   return (
     <Grid
       templateAreas={{
@@ -30,13 +20,7 @@ const HomePage = () => {
         base: '1fr',
         lg: '200px 1fr',
       }}
-      bg={bgColor}
-      color={color}
     >
-      {/* <GridItem pl="2" area={'nav'}>
-        <Navbar />
-      </GridItem> */}
-
       <Show above="lg">
         <GridItem pl="2" area={'aside'} px={5}>
           <GenreList />
