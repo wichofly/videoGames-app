@@ -1,4 +1,4 @@
-# Video Games App 
+# Video Games App
 
 ## Project Description:
 
@@ -22,10 +22,12 @@ Merge Gaming Passion with Front-end Development, as well learn more the use of T
 - TypeScript: Used for type safety and improved code quality.
 - [Chakra UI](https://chakra-ui.com/): A component library for building accessible and responsive UIs.
 - Axios: For making HTTP requests to the RAWG API.
+- [React Query](https://tanstack.com/query/latest/docs/framework/react/quick-start): Refactored the data fetching logic using     useQuery and useInfiniteQuery from React Query for more efficient data fetching, caching, and state management.
+- [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component): Added `react-infinite-scroll-component` for seamless infinite scrolling functionality in the game grid. This enables the user to scroll through the game listings without reloading or navigating away from the page, enhancing the user experience.( integrated with React Query's using `useInfiniteQuery`)
+- [Zustand](https://www.npmjs.com/package/zustand#typescript-usage): It is a state management library that is simpler and more lightweight compared to other solutions like Redux or Context API. It allows to manage global state with minimal boilerplate code and does not require the use of custom hooks, reducers, or context providers.
 - [RAWG API](https://rawg.io/apidocs): Provides data about video games, including genres, platforms, and game details.
 - [Vercel](https://vercel.com/docs): Used for deploying the application and hosting it on the web.
 
 ## Website link:
 
-- [VideoGames-app](https://video-games-app-fawn.vercel.app/) 
-
+- [VideoGames-app](https://video-games-app-fawn.vercel.app/)
