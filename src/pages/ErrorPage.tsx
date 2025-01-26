@@ -1,12 +1,14 @@
 import {
   Box,
   Button,
+  Flex,
   Heading,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { isRouteErrorResponse, Link, useRouteError } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const ErrorPage = () => {
   const error = useRouteError();
@@ -15,11 +17,11 @@ const ErrorPage = () => {
   const color = useColorModeValue('teal', 'gray.300');
 
   return (
-    <Box bg={bgColor} color={color} minHeight="100vh">
+    <Flex direction="column" bg={bgColor} color={color} minHeight="100vh">
       <Navbar />
-      <Box padding="5">
-        <Heading>Oops</Heading>
-        <Text>
+      <Box flex="1" justifyItems="center" padding="5">
+        <Heading>Oops!</Heading>
+        <Text fontSize="larger">
           {isRouteErrorResponse(error)
             ? 'This page does not exist'
             : 'An unexpected error occurred'}
@@ -28,7 +30,8 @@ const ErrorPage = () => {
           <Button mt="4">Back to Home Page</Button>
         </Link>
       </Box>
-    </Box>
+      <Footer />
+    </Flex>
   );
 };
 

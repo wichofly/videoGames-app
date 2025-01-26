@@ -1,4 +1,4 @@
-import { Box, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, useColorModeValue } from '@chakra-ui/react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -8,13 +8,13 @@ const Layout = () => {
   const color = useColorModeValue('teal', 'gray.300');
 
   return (
-    <Box bg={bgColor} color={color} minHeight="100vh">
+    <Flex direction="column" bg={bgColor} color={color} minHeight="100vh">
       <Navbar />
-      <Box padding="5">
+      <Box flex="1" padding="5">
         <Outlet />
       </Box>
       <Footer />
-    </Box>
+    </Flex>
   );
 };
 

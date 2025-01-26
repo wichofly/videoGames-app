@@ -39,9 +39,6 @@ const HomePage = () => {
         </Box>
         <GameGrid />
       </GridItem>
-
-      {/* <GridItem pl="2" area={'footer'}>
-      </GridItem> */}
     </Grid>
   );
 };
